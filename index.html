@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>retoosh</title>
+    <style>* {
+        padding: 0;
+        margin: 0;
+    }</style>
+    <script src="lib/phaser.min.js"></script>
+    <script src="lib/CanvasInput.min.js"></script>
+    <script src="src/Boot.js"></script>
+    <script src="src/Preloader.js"></script>
+    <script src="src/MainMenu.js"></script>
+    <script src="src/Howto.js"></script>
+    <script src="src/Game.js"></script>
+    <script src="src/game/StatsPanel.js"></script>
+    <script src="src/game/ScorePanel.js"></script>
+    <script src="src/game/Weapon.js"></script>
+    <script src="src/game/Enemy.js"></script>
+    <script src="src/game/Scenario.js"></script>
+    <script src="src/GameOver.js"></script>
+    <script src="src/game/Powerups.js"></script>
+
+</head>
+<body>
+<script>
+    (function () {
+        var game = new Phaser.Game(Retoosh.WIDTH, Retoosh.HEIGHT, Phaser.CANVAS, 'game');
+        game.state.add('Boot', Retoosh.Boot);
+        game.state.add('Preloader', Retoosh.Preloader);
+        game.state.add('MainMenu', Retoosh.MainMenu);
+        game.state.add('Howto', Retoosh.Howto);
+        game.state.add('Game', Retoosh.Game);
+        game.state.add('GameOver', Retoosh.GameOver);
+        game.state.start('Boot');
+    })();
+</script>
+</body>
+</html>
