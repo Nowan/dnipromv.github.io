@@ -50,7 +50,7 @@ var StatsPanel = function (game) {
 	upgrade_indicator.empty_tint = 0x5e5125;
 	
 	upgrade_indicator.create( 240, 8, 'upgrade_indicator' );
-	for( var i = 0; i < 4; i++ ){
+	for( var i = 0; i < 5; i++ ){
 		upgrade_indicator.create( 258 + i * 8, 8, 'upgrade_segment' );
 	}
 
@@ -78,5 +78,27 @@ StatsPanel.prototype.updateEnergyIndicator = function( value ){
 	for( var i = 1; i < energy_indicator.children.length; i++ ){
 		var sprite = energy_indicator.children[i];
 		sprite.tint = i > full_segments ? energy_indicator.empty_tint : energy_indicator.full_tint;
+	}
+}
+
+StatsPanel.prototype.updateLifeIndicator = function( value ){
+	var life_indicator = this.indicators.life;
+
+	var full_segments = value;
+
+	for( var i = 0; i < life_indicator.children.length; i++ ){
+		var sprite = life_indicator.children[i];
+		sprite.tint = i >= full_segments ? life_indicator.empty_tint : life_indicator.full_tint;
+	}
+}
+
+StatsPanel.prototype.updateUpgradeIndicator = function( value ){
+	var upgrade_indicator = this.indicators.upgrade;
+
+	var full_segments = value;
+
+	for( var i = 0; i < upgrade_indicator.children.length; i++ ){
+		var sprite = upgrade_indicator.children[i];
+		sprite.tint = i >= full_segments ? upgrade_indicator.empty_tint : upgrade_indicator.full_tint;
 	}
 }
